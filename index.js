@@ -6,7 +6,11 @@ const app = express()
 const port = 5000
 
 // middleware
-app.use(cors());
+app.use(cors({
+  origin:["https://client-ashik763.vercel.app/"],
+  methods: [ 'POST','GET'],
+  credentials:true
+}));
 app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@voyage.s21ywkk.mongodb.net/?retryWrites=true&w=majority`;
